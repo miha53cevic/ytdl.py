@@ -9,7 +9,7 @@ At the end press enter to exit
 
 ## Install
 ```bash
-    cd youtubeDL.py
+    cd ytdl.py
     pip3 install .
 ```
 You also need ffmpeg installed
