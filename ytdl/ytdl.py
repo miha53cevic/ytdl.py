@@ -16,6 +16,7 @@ def downloadFile(file: str):
     if (supported(file) == True):
         
         ydl_opts = {
+            'outtmpl': '%(title)s.%(ext)s',
             'format': 'bestaudio/best',
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
