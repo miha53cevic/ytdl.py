@@ -4,6 +4,7 @@ A minimal ytdl wrapper that downloads youtube videos to mp3
 ## Usage
 ```bash
     ytdl ${url}
+    ytdl ${url} --playlist
 ``` 
 At the end press enter to exit
 

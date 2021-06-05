@@ -10,8 +10,8 @@ setup(
     # Dependencies
     install_requires=["youtube_dl"],
     
-    # Create a console script named music inside the python folder with scripts
-    # that runs the main() function from music.py
+    # Create a console script named ytdl inside the python folder with scripts
+    # that runs the main() function from ytdl.py
     entry_points = {
         "console_scripts": ["ytdl=ytdl.ytdl:main"]
     },
