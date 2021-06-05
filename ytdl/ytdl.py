@@ -29,14 +29,36 @@ def downloadFile(file: str):
     else:
         print(">>> Url invalid!");
 
+def downloadPlaylist(playlist: str):
+    if (supported(playlist) == True):
+        
+        ydl_opts = {
+            'outtmpl': '%(title)s.%(ext)s',
+            'format': 'bestaudio/best',
+            'noplaylist': False,
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+            }],
+        }
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([playlist]);
+    else:
+        print(">>> Url invalid!");
+
 
 def main():
     parser = argparse.ArgumentParser();
     parser.add_argument("url", help="youtube url");
+    # action="store_true" means that when not specifying it, it returns false otherwise it returns true
+    parser.add_argument("--playlist", "-p", help="download youtube playlist", action="store_true");
 
     if (len(sys.argv) > 1):
         args = parser.parse_args();
-        downloadFile(args.url or "");
+        if args.playlist == True:
+            downloadPlaylist(args.url or "");
+        else:
+            downloadFile(args.url or "");
     else:
         print(">>> No url given!");
         
