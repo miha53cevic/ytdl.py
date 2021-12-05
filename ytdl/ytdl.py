@@ -1,11 +1,11 @@
 from __future__ import unicode_literals
-import youtube_dl
+import yt_dlp
 
 import argparse
 import sys
 
 def supported(url):
-    ies = youtube_dl.extractor.gen_extractors()
+    ies = yt_dlp.extractor.gen_extractors()
     for ie in ies:
         if ie.suitable(url) and ie.IE_NAME != 'generic':
             # Site has dedicated extractor
@@ -24,7 +24,7 @@ def downloadFile(file: str):
                 'preferredcodec': 'mp3',
             }],
         }
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([file]);
     else:
         print(">>> Url invalid!");
@@ -41,7 +41,7 @@ def downloadPlaylist(playlist: str):
                 'preferredcodec': 'mp3',
             }],
         }
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([playlist]);
     else:
         print(">>> Url invalid!");
