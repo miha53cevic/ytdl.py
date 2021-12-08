@@ -18,4 +18,4 @@ https://ffmpeg.org/
 
 
 ## Credit
-https://github.com/ytdl-org/youtube-dl
+https://github.com/yt-dlp/yt-dlp
